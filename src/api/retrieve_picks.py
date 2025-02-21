@@ -37,7 +37,7 @@ def fetch_player_picks(league, market, sportsbooks):
     """
     url = PICKS_URL
     params = {
-        "user_id": USER_ID,  # Your user ID
+        "user_id": USER_ID,  # user ID
         "league": league,
         "market": market,
         "sportsbooks": sportsbooks
