@@ -5,11 +5,13 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
+#path to env file
 BASE_DIR = Path(__file__).resolve().parent.parent.parent 
 ENV_PATH = BASE_DIR / "config" / ".env"
 
 load_dotenv(dotenv_path=ENV_PATH)
 
+#set key pairs
 AUTH_KEY = os.getenv("MON_AUTH_KEY")
 USER_ID = os.getenv("MON_USER_ID")
 REFERER= os.getenv("MON_REFERER")
@@ -18,6 +20,7 @@ PICKS_URL= os.getenv("MON_PICKS_URL")
 
 time.sleep(2)  # 2-second delay between requests
 
+#headers
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0",
     "Accept": "application/json",
@@ -26,6 +29,7 @@ HEADERS = {
     "Origin": ORIGIN
 }
 
+#fetch picks from ml model
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(5))
 def fetch_player_picks(league, market, sportsbooks):
     """
@@ -51,6 +55,7 @@ def fetch_player_picks(league, market, sportsbooks):
         print(f"Error {response.status_code}: {response.text}")
         return None
 
+#print picks in human-readable format
 def quick_print(picks):
     for pick in picks:
         print(f"{pick['selection']} | {pick['formatted_market']} {pick['line']}")
