@@ -32,9 +32,7 @@ HEADERS = {
 #fetch picks from ml model
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(5))
 def fetch_player_picks(league, market, sportsbooks):
-    """
-    Fetch player props from machine learning model.
-    """
+    #Fetch player props from machine learning model.
     url = PICKS_URL
     params = {
         "user_id": USER_ID,  # user ID
