@@ -34,7 +34,9 @@ TEAM_ABBREVIATIONS = {
 POSITION_MAP = {
     'PG': 'Point Guard',
     'SG': 'Shooting Guard',
+    'G': 'Guard',
     'SF': 'Small Forward',
     'PF': 'Power Forward',
+    'F': 'Forward',
     'C': 'Center'
 }
