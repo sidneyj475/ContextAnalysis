@@ -1,0 +1,40 @@
+TEAM_ABBREVIATIONS = {
+    'MEM': 'Grizzlies',
+    'GS': 'Warriors',
+    'PHX': 'Suns',
+    'SAC': 'Kings',
+    'LAL': 'Lakers',
+    'LAC': 'Clippers',
+    'DAL': 'Mavericks',
+    'HOU': 'Rockets',
+    'NO': 'Pelicans',
+    'SA': 'Spurs',
+    'DEN': 'Nuggets',
+    'MIN': 'Timberwolves',
+    'POR': 'Trail Blazers',
+    'OKC': 'Thunder',
+    'UTAH': 'Jazz',
+    'BOS': 'Celtics',
+    'BKN': 'Nets',
+    'NY': 'Knicks',
+    'PHI': '76ers',
+    'TOR': 'Raptors',
+    'CHI': 'Bulls',
+    'CLE': 'Cavaliers',
+    'DET': 'Pistons',
+    'IND': 'Pacers',
+    'MIL': 'Bucks',
+    'ATL': 'Hawks',
+    'CHA': 'Hornets',
+    'MIA': 'Heat',
+    'ORL': 'Magic',
+    'WSH': 'Wizards'
+}
+
+POSITION_MAP = {
+    'PG': 'Point Guard',
+    'SG': 'Shooting Guard',
+    'SF': 'Small Forward',
+    'PF': 'Power Forward',
+    'C': 'Center'
+}
