@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
+
 #path to env file
 BASE_DIR = Path(__file__).resolve().parent.parent.parent 
 ENV_PATH = BASE_DIR / "config" / ".env"
@@ -31,14 +32,15 @@ HEADERS = {
 
 #fetch picks from ml model
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(5))
-def fetch_player_picks(league, market, sportsbooks):
+def fetch_player_picks(league, market, sportsbooks, bet_name):
     #Fetch player props from machine learning model.
     url = PICKS_URL
     params = {
         "user_id": USER_ID,  # user ID
         "league": league,
         "market": market,
-        "sportsbooks": sportsbooks
+        "sportsbooks": sportsbooks,
+        "bet_name": bet_name
     }
 
     response = requests.post(
@@ -54,12 +56,10 @@ def fetch_player_picks(league, market, sportsbooks):
         return None
 
 #print picks in human-readable format
-def quick_print(picks):
+"""def quick_print(picks):
     for pick in picks:
-        print(f"{pick['selection']} | {pick['formatted_market']} {pick['line']}")
-        print(f"O/U: {pick['selection_line']} | Prob: {pick['simulated_prob']*100:.1f}%")
-        print("─" * 40)
+        print(f"{pick['selection']}") #| {pick['formatted_market']} {pick['line']}")
+        #print(f"O/U: {pick['selection_line']} | Prob: {pick['simulated_prob']*100:.1f}%")
+        #print("─" * 40)"""
 
-#usage
-picks = fetch_player_picks(league="NBA", market="All", sportsbooks="bovada")
-quick_print(picks)
+#quick_print(picks)
