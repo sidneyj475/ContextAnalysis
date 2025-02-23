@@ -32,15 +32,14 @@ HEADERS = {
 
 #fetch picks from ml model
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(5))
-def fetch_player_picks(league, market, sportsbooks, bet_name):
+def fetch_player_picks(league, market, sportsbooks):
     #Fetch player props from machine learning model.
     url = PICKS_URL
     params = {
         "user_id": USER_ID,  # user ID
         "league": league,
         "market": market,
-        "sportsbooks": sportsbooks,
-        "bet_name": bet_name
+        "sportsbooks": sportsbooks
     }
 
     response = requests.post(
@@ -56,10 +55,11 @@ def fetch_player_picks(league, market, sportsbooks, bet_name):
         return None
 
 #print picks in human-readable format
-"""def quick_print(picks):
+def quick_print(picks):
     for pick in picks:
         print(f"{pick['selection']}") #| {pick['formatted_market']} {pick['line']}")
         #print(f"O/U: {pick['selection_line']} | Prob: {pick['simulated_prob']*100:.1f}%")
         #print("─" * 40)"""
 
-#quick_print(picks)
+picks = fetch_player_picks(league="NBA", market="All", sportsbooks="fanduel")
+quick_print(picks)

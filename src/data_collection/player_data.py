@@ -1,5 +1,10 @@
-# Updated player_data.py
 from basketball_reference_scraper.players import get_game_logs
+import sys
+import os
+
+# Add the 'src' directory to Python's search path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from api.retrieve_picks import fetch_player_picks
 
 def process_picks_to_names(picks):
@@ -17,7 +22,7 @@ def process_picks_to_names(picks):
     return player_names
 
 # Get current picks
-picks = fetch_player_picks(league="NBA", market="player_threes", sportsbooks="bovada", bet_name="Amen Thompson 8.5")
+picks = fetch_player_picks(league="NBA", market="All", sportsbooks="fanduel")
 
 if picks:
     # Extract and clean player names from picks
