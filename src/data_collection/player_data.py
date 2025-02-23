@@ -28,7 +28,7 @@ if picks:
         print(f"\nFetching game logs for {player}...")
         try:
             df = get_game_logs(player, 2025, playoffs=False)
-            print(df.tail(5))  # Show first 5 games
+            print(df.tail(5))  # Show 5 most recent games
         except Exception as e:
             print(f"Error getting logs for {player}: {str(e)}")
 else:
